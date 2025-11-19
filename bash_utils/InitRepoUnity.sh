@@ -1,13 +1,13 @@
 #!/bin/sh
 
-git_url:"https://github.com/StudioAlbert/UnityEmpty.git"
-git_message:"first commit"
+git_url="https://github.com/StudioAlbert/UnityCourse_NavMesh.git"
+git_message="Creation from Unity Start project"
 
 echo "# UnityEmpty" >> README.md
 git init
 
 #Get an ignore file
-wget -O ".gitignore" "https://github.com/github/gitignore/blob/main/Unity.gitignore"
+curl -o ".gitignore" "https://raw.githubusercontent.com/github/gitignore/refs/heads/main/Unity.gitignore"
 # Verify download
 if [ $? -eq 0 ]; then
     echo "Download successful: .gitignore"
@@ -19,13 +19,13 @@ else
 fi
 
 
-#Get an ignore file
-wget -O ".gitattributes" "https://github.com/gitattributes/gitattributes/blob/master/Unity.gitattributes"
+#Get an attributes file
+curl -o ".gitattributes" "https://raw.githubusercontent.com/gitattributes/gitattributes/refs/heads/master/Unity.gitattributes"
 # Verify download
 if [ $? -eq 0 ]; then
-    echo "Download successful: .gitignore"
+    echo "Download successful: .gitattributes"
 else
-    echo "Failed to download .gitignore"
+    echo "Failed to download .gitattributes"
     
     read -p "Press Enter to exit."
     exit 1
